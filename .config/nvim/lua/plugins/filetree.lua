@@ -10,12 +10,12 @@ return {
         -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     keys = {
-        { "<leader>pv", "<cmd>Neotree toggle<CR>", { silent = true } },
+        { "<leader>pv", "<cmd>Neotree reveal current<CR>", { silent = true } },
     },
     config = function()
         require('neo-tree').setup({
             window = {
-                width = 30,
+                position = "current",
             },
             event_handlers = {
                 {
