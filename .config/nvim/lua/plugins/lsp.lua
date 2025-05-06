@@ -101,7 +101,7 @@ return {
             })
 
             require("mason-lspconfig").setup({
-                ensure_installed = { "ast_grep", "gopls", "lua_ls", "ts_ls", "sqlls", "cmake" },
+                ensure_installed = { "ast_grep", "rust_analyzer", "gopls", "svelte", "lua_ls", "ts_ls", "sqlls", "csharp_ls" },
                 automatic_installation = true,
                 handlers = {
                     -- this first function is the "default handler"
