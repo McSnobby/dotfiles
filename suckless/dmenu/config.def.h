@@ -5,7 +5,7 @@ static int topbar = 0;                      /* -b  option; if 0, dmenu appears a
 static int centered = 1;                    /* -c option; centers dmenu on screen */
 static int min_width = 500;                    /* minimum width when centered */
 static const float menu_height_ratio = 4.0f;  /* This is the ratio used in the original calculation */
-static const unsigned int alpha = 0xE6;     /* Amount of opacity. 0xff is opaque             */
+static const unsigned int alpha = 180;     /* Amount of opacity. 0xff is opaque             */
 /* -fn option overrides fonts[0]; default X11 font or font set */
 static const char *fonts[] = {
 	"FiraCodeNerdFontMono:size=10"
@@ -33,9 +33,9 @@ static const char nord_purple[]                   = "#B48EAD";
 
 static const char *colors[SchemeLast][2] = {
     /*     fg         bg       */
-    [SchemeNorm] = { nord_white, nord_frost_light_blue },
+    [SchemeNorm] = { nord_white, nord_polar_darkest_blue },
     [SchemeSel]  = { nord_polar_lighter_dark_blue, nord_frost_darker_light_blue },
-	[SchemeOut] = { nord_frost_light_blue,  nord_polar_lightest_dark_blue},
+	[SchemeOut] = { nord_frost_light_blue,  nord_polar_darkest_blue },
 };
 
 static const unsigned int alphas[SchemeLast][2] = {

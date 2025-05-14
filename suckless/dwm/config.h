@@ -1,20 +1,14 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 5;        /* gaps between windows */
+static const unsigned int borderpx  = 0;        /* border pixel of windows */
+static const unsigned int gappx     = 7;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "FiraCodeNerdFontMono:size=11" };
-static const char dmenufont[]       = "FiraCodeNerdFontMono:size=11";
 
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
-static const unsigned int baralpha = 0xd0;
+static const unsigned int baralpha = 0xE0;
 static const unsigned int borderalpha = OPAQUE;
 static const int splitstatus        = 1;        /* 1 for split status items */
 static const char *splitdelim        = ";";       /* Character used for separating status */
@@ -41,9 +35,6 @@ static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { nord_white, nord_polar_darkest_blue, nord_polar_darkest_blue },
 	[SchemeSel]  = { nord_polar_darkest_blue, nord_frost_darker_light_blue,  nord_red },
-
-    // [SchemeTabActive]  = { nord_polar_darkest_blue, nord_polar_darkest_blue,  nord_red },
-    // [SchemeTabInactive]  = { nord_white, nord_polar_darkest_blue,  nord_polar_darkest_blue }
 };
 
 static const unsigned int alphas[][3]      = {

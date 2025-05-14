@@ -14,4 +14,11 @@ chsh -s /bin/zsh
 cd ~/dotfiles
 stow .
 
+# Compile suckless
+cd ~/dotfiles/suckless/dwm
+sudo make clean install
+
+cd ~/dotfiles/suckless/dmenu
+sudo make clean install
+
 echo "You need to modify .xinitrc to you monitor settings"

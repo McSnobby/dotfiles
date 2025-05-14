@@ -49,6 +49,26 @@ symbol = '󰌠 '
 format = "[ $symbol($version )]($style)"
 style = "fg:#2e3440 bg:#8fbcbb"
 
+[c]
+symbol = ' '
+format = "[ $symbol($version )]($style)"
+style = "fg:#2e3440 bg:#8fbcbb"
+
+[cpp]
+symbol = ' '
+format = "[ $symbol($version )]($style)"
+style = "fg:#2e3440 bg:#8fbcbb"
+
+[golang]
+symbol = ' '
+format = "[ $symbol($version )]($style)"
+style = "fg:#2e3440 bg:#8fbcbb"
+
+[rust]
+symbol = ' '
+format = "[ $symbol($version )]($style)"
+style = "fg:#2e3440 bg:#8fbcbb"
+
 # MISC
 # ====
 
