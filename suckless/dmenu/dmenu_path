@@ -11,3 +11,4 @@ if stest -dqr -n "$cache" $PATH; then
 else
 	cat "$cache"
 fi
+

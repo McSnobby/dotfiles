@@ -14,3 +14,4 @@ chsh -s /bin/zsh
 cd ~/dotfiles
 stow .
 
+echo "You need to modify .xinitrc to you monitor settings"

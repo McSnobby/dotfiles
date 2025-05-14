@@ -1,125 +1,96 @@
-"$schema" = "https://starship.rs/config-schema.json"
-
-# colorscheme
-#
-# #2E3440
-# #3B4252
-# #434C5E
-# #4C566A
-# #D8DEE9
-# #E5E9F0
-# #ECEFF4
-# #8FBCBB
-# #88C0D0
-# #81A1C1
-# #5E81AC
-# #BF616A
-# #D08770
-# #EBCB8B
-# #A3BE8C
-# #B48EAD
-
 format = """
-$username\
+[](#5e81ac)\
+$os$username[@](bg:#5e81ac fg:#2e3440)$hostname\
+[](bg:#81a1c1 fg:#5e81ac)\
 $directory\
+[](bg:#88c0d0 fg:#81a1c1)\
 $git_branch\
-$git_status\
-$c\
-$elixir\
-$elm\
-$golang\
-$haskell\
-$java\
-$julia\
-$nodejs\
-$nim\
-$rust\
-[\uE0B0 ](fg:#81A1C1 bg:#2E3440)\
+[](bg:#8fbcbb fg:#88c0d0)\
+$package$c$cmake$cobol$daml$dart$deno$dotnet$elixir$elm$erlang$fennel$gleam\
+$golang$guix_shell$haskell$haxe$helm$java$julia$kotlin$gradle$lua$nim$nodejs\
+$ocaml$opa$perl$php$pulumi$purescript$python$quarto$raku$rlang$red$ruby$rust\
+$scala$solidity$swift$terraform$typst$vlang$vagrant$zig\
+[](bg:#d9dee9 fg:#8fbcbb)\
+$cmd_duration\
+[](fg:#d9dee9)\
 $line_break\
 $character
 """
 
-[character]
-success_symbol = "[   \uE007  ](bg:#4C566A)[\uE0BC](fg:#4C566A)"
-error_symbol = "[   \uE007  ](bg:#4C566A fg:#BF616A)[\uE0BC](fg:#4C566A)"
+# EXCLUDED $
+# ==========
+# to add later if I need them lmao
+# localip, shlvl, singularity, kubernetes
+# vcsh, fossil_branch, fossil_branch_metrics, hg_branch, pijul_channel, docker_context
+# buf, nix_shell, conda, meson, spack
+# memory_usage
+# aws, gcloud, openstack, azure
+# direnv, env_var, crytal, custom, sudo
+# jobs, status, container, shell
 
-# system
+# GIT
+# ===
+
+[git_branch]
+format = "[ $symbol$branch($remote_branch) ]($style)"
+symbol = "󰘬 "
+style = "fg:#2e3440 bg:#88c0d0"
+
+# LANGUAGES
+# =========
+
+[lua]
+symbol = '󰢱 '
+format = '[ $symbol($version )]($style)'
+style = "fg:#2e3440 bg:#8fbcbb"
+
+[python]
+symbol = '󰌠 '
+format = "[ $symbol($version )]($style)"
+style = "fg:#2e3440 bg:#8fbcbb"
+
+# MISC
+# ====
+
+[hostname]
+ssh_only = false
+style = "fg:#2e3440 bg:#5e81ac"
+format = "[$ssh_symbol$hostname ]($style)"
+ssh_symbol = " "
+
+[os]
+style = "fg:#2e3440 bg:#5e81ac"
+disabled = false
+
+[os.symbols]
+Arch = ' '
+
+[shell]
+disabled = true
 
 [username]
 show_always = true
-style_user = "bg:#4C566A"
-style_root = "bg:#4C566A"
-format = "[ $user ]($style)[\uE0BC](bg:#BF616A fg:#4C566A)"
+format = '[$user]($style)'
+style_user = "fg:#2e3440 bg:#5e81ac"
 
 [directory]
-style = "bg:#BF616A"
-format = "[ $path ]($style)[\uE0BE](bg:#BF616A fg:#D08770)"
-truncate_to_repo = false
-truncation_length = 3
-truncation_symbol = "…/"
+truncation_length = 2
+style = "fg:#2e3440 bg:#81a1c1"
+read_only = " "
+format = "[ 󰉋 $path ]($style)[$read_only]($read_only_style)"
+read_only_style = "fg:#2e3440 bold bg:#81a1c1"
 
-# git
-
-[git_branch]
-symbol = "\uE0A0"
-style = "bg:#D08770"
-format = "[[ $symbol $branch ](bg:#D08770)]($style)"
-
-[git_metrics]
+[sudo]
 disabled = false
-
-[git_status]
-format = "[($all_status$ahead_behind)]($style)[\uE0BC](bg:#81A1C1 fg:#D08770)"
-style = "bg:#D08770"
-conflicted = "👿 $count "
-ahead = "⇡ $count "
-behind = "⇣ $count "
-diverged = " $count "
-untracked = "🤷 $count "
-stashed = "‍📦 $count "
-modified = "פֿ $count "
-staged = "[ $count ]"
-renamed = " $count "
-deleted = "🗑 $count "
-
-# languages
-
-[c]
-symbol = "© "
-style = "bg:#D8DEE9"
-format = "[[ $symbol ($version) ](bg:#D8DEE9)]($style)"
-
-[elixir]
-symbol = "\uE62D "
-style = "bg:#D8DEE9"
-format = "[[ $symbol ($version) ](bg:#D8DEE9)]($style)"
-
-[elm]
-symbol = "\uE62C "
-style = "bg:#D8DEE9"
-format = "[[ $symbol ($version) ](bg:#D8DEE9)]($style)"
-
-[golang]
-symbol = "\uE627 "
-style = "bg:#81A1C1 fg:#4C566A"
+symbol = " "
+style = "fg:#2e3440 bg:#d9dee9"
 format = "[ $symbol]($style)"
 
-[haskell]
-symbol = "\uE777 "
-style = "bg:#D8DEE9"
-format = "[[ $symbol($version)](bg:#D8DEE9)]($style)"
+[cmd_duration]
+format = "[ 󰔚 $duration ]($style)"
+style = "fg:#2e3440 bg:#d9dee9"
 
-[nodejs]
-symbol = "\uE718 "
-style = "bg:#81A1C1 fg:#4C566A"
-format = "[ $symbol]($style)"
-
-[rust]
-symbol = "\uE7A8 "
-style = "bg:#D8DEE9"
-format = "[[ $symbol($version) ](bg:#D8DEE9)]($style)"
-
-[ruby]
-symbol = "\uE739 "
-style = "bg:#D8DEE9"
-format = "[[ $symbol($version) ](bg:#D8DEE9)]($style)"
+[character]
+success_symbol = "[ 󱞩](bold green)"
+error_symbol = "[ 󱞩](bold red)"
+vimcmd_symbol = "[  󱞩](bold green)"
