@@ -1,7 +1,16 @@
 #!/bin/sh
 
 dayanddate() {
-    LC_TIME="sv_SE.UTF-8" date "+%A %d %B %Y"
+    time=$(LC_TIME="sv_SE.UTF-8" date "+%A %d %B %Y")
+    result=""
+    for i in $time; do
+        if [[ $i =~ '^[0-9]' ]]; then
+            result+="$i "
+        else
+            result+="${i^} "
+        fi
+    done
+    echo "${result::-1}"
 }
 
 battery() {

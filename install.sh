@@ -11,6 +11,7 @@ makepkg -si
 chsh -s /bin/zsh
 
 #Stow
+mkdir -p ~/.config
 cd ~/dotfiles
 stow .
 
