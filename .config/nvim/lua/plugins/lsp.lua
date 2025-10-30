@@ -101,8 +101,13 @@ return {
             })
 
             require("mason-lspconfig").setup({
-                ensure_installed = { "ast_grep", "rust_analyzer", "gopls", "svelte", "lua_ls", "ts_ls", "sqlls", "csharp_ls" },
+                ensure_installed = { "ast_grep", "rust_analyzer", "gopls", "lua_ls", "ts_ls", "sqlls", "asm-lsp" },
                 automatic_installation = true,
+                automatic_enable = {
+                    exclude = {
+                        "rust_analyzer",
+                    },
+                },
                 handlers = {
                     -- this first function is the "default handler"
                     -- it applies to every language server without a "custom handler"
@@ -120,7 +125,9 @@ return {
                                 }
                             }
                         })
-                    end
+                    end,
+                    rust_analyzer = function()
+                    end,
                 }
             })
         end
